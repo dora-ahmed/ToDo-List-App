@@ -1,18 +1,19 @@
-#main menu.py
 import customtkinter as ctk
 from add_task_page import AddTaskPage
 from delete_task_page import DeleteTaskPage
 from classify_tasks_page import ClassifyTasksPage
+from edit_task_page import EditTaskPage  # <--- تم إضافة هذا السطر
 
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("blue")
+
 
 class MainMenu(ctk.CTk):
     def __init__(self):
         super().__init__()
 
         self.title("القائمة الرئيسية لـ ToDo")
-        self.geometry("400x300")
+        self.geometry("400x350")  # قمت بزيادة الطول قليلاً لتناسب الأزرار
 
         ctk.CTkLabel(self, text="القائمة الرئيسية", font=("Arial", 22)).pack(pady=20)
 
@@ -22,10 +23,14 @@ class MainMenu(ctk.CTk):
         ctk.CTkButton(self, text="🗑️ حذف مهمة", width=200,
                       command=lambda: DeleteTaskPage(self)).pack(pady=10)
 
-        # أزرار الفريق (فارغة حالياً)
-        ctk.CTkButton(self, text="✏️ تعديل مهمة (للفريق)", width=200, state="disabled").pack(pady=5)
+        # أزرار الفريق
+        # تم تفعيل الزر وربطه بصفحة التعديل
+        ctk.CTkButton(self, text="✏️ تعديل مهمة (للفريق)", width=200,
+                      command=lambda: EditTaskPage(self)).pack(pady=5)
+
         ctk.CTkButton(self, text="📂 التصنيف (للفريق)", width=200,
-              command=lambda: ClassifyTasksPage(self)).pack(pady=5)
+                      command=lambda: ClassifyTasksPage(self)).pack(pady=5)
+
         ctk.CTkButton(self, text="✔️ عرض المنتهي (للفريق)", width=200, state="disabled").pack(pady=5)
 
 
