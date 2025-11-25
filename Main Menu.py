@@ -1,6 +1,8 @@
+#main menu.py
 import customtkinter as ctk
 from add_task_page import AddTaskPage
 from delete_task_page import DeleteTaskPage
+from classify_tasks_page import ClassifyTasksPage
 
 ctk.set_appearance_mode("light")
 ctk.set_default_color_theme("blue")
@@ -22,7 +24,8 @@ class MainMenu(ctk.CTk):
 
         # أزرار الفريق (فارغة حالياً)
         ctk.CTkButton(self, text="✏️ تعديل مهمة (للفريق)", width=200, state="disabled").pack(pady=5)
-        ctk.CTkButton(self, text="📂 التصنيف (للفريق)", width=200, state="disabled").pack(pady=5)
+        ctk.CTkButton(self, text="📂 التصنيف (للفريق)", width=200,
+              command=lambda: ClassifyTasksPage(self)).pack(pady=5)
         ctk.CTkButton(self, text="✔️ عرض المنتهي (للفريق)", width=200, state="disabled").pack(pady=5)
 
 
