@@ -7,7 +7,7 @@ class AddTaskPage(ctk.CTkToplevel):
     def __init__(self, master=None):
         super().__init__(master)
 
-        self.title("إضافة مهمة")
+        self.title("إضافة ممهمة")
         self.geometry("400x350")
 
         ctk.CTkLabel(self, text="إضافة مهمة جديدة", font=("Arial", 20)).pack(pady=10)
